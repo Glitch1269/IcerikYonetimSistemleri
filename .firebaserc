@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "fir-675ae": {
+      "hosting": {
+        "app": [
+          "fir-675ae"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "fir-675ae"
+  }
+}
