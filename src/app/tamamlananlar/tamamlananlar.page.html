@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>tamamlananlar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let do of tamamlanmisGorev">
+    
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Gorevler : {{do.baslik}}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-card-content> 
+      <ion-label color="warning">{{do.aciklama}}</ion-label>
+    </ion-card-content>
+    <ion-button (click)="TamamIptal(do,false)" expand="block" fill="clear" shape="round" color="primary">
+      Geri Al
+    </ion-button>
+    <ion-button expand="block" fill="clear" shape="round" (click)="Sil(do)" color="danger">
+      Sil
+    </ion-button>
+  </ion-card>
+
+
+ 
+
+
+
+</ion-content>
+
+
+
+
+<ion-tab-bar slot="bottom">
+  <ion-tab-button routerLink="">
+    <ion-icon name="documents-outline"></ion-icon>
+    <ion-label>Do</ion-label>
+  </ion-tab-button>
+  
+  <ion-tab-button routerLink="../done">
+    <ion-icon name="checkmark-done-outline"></ion-icon>
+    <ion-label>Done</ion-label>
+  </ion-tab-button>
+  
+  <ion-tab-button routerLink="../login">
+    <ion-icon name="home"></ion-icon>
+    <ion-label>Login</ion-label>
+  </ion-tab-button>
+  

@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Mail :</ion-label>
+      <ion-input
+        type="text"
+        text-right
+        id="mail"
+        clearInput="s"
+        [(ngModel)]="mail"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Parola :</ion-label>
+      <ion-input
+        type="password"
+        text-right
+        id="parola"
+        clearInput=""
+        [(ngModel)]="parola"
+      ></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button
+    expand="block"
+    fill="clear"
+    shape="round"
+    (click)="OturumAc(this.mail,this.parola)"
+  >
+    Oturum Aç
+  </ion-button>
+</ion-content>
+
+<ion-button expand="block" (click)="setOpen(true)">Üye Ol</ion-button>
+<ion-modal [isOpen]="isModalOpen">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Üye Ol</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setOpen(false)">Kapat</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <form
+        [formGroup]="uyeOl"
+        (ngSubmit)="UyeOl(adsoyad.value,mail.value,parola.value)"
+      >
+        <ion-item>
+          <ion-label position="floating">Kullanıcı Adı :</ion-label>
+          <ion-input required formControlName="adsoyad" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Mail :</ion-label>
+          <ion-input required formControlName="mail" type="mail"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating"> Şifre : </ion-label>
+          <ion-input required formControlName="parola" type="text"></ion-input>
+        </ion-item>
+
+        <ion-button type="submit" expand="block" fill="clear" shape="round">
+          Ekle
+        </ion-button>
+      </form>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+<ion-tab-bar slot="bottom">
+  <ion-tab-button routerLink="">
+    <ion-icon name="documents-outline"></ion-icon>
+    <ion-label>Do</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button routerLink="../done">
+    <ion-icon name="checkmark-done-outline"></ion-icon>
+    <ion-label>Done</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button routerLink="login">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Giriş Yap</ion-label>
+  </ion-tab-button>
+</ion-tab-bar>
